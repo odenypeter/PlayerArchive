@@ -1,1 +1,26 @@
-<p>player-details works!</p>
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-6 player">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Player Details</mat-card-title>
+                <mat-card-subtitle>Search for a player by ID to view their Details</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- Begin player fearch form -->
+                <div class="player--search">
+                    <app-player-search-form></app-player-search-form>
+                </div>
+                <!-- End player search form -->
+
+                <!-- Begin player details section -->
+                <div class="player--details"></div>
+                <!-- End player details section -->
+
+                <!-- Begin player not found section -->
+                <div class="player--not-found"></div>
+                <!-- End player not found section -->
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

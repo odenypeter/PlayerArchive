@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-player-not-found',
   templateUrl: './player-not-found.component.html',
-  styleUrls: ['./player-not-found.component.css']
+  styleUrls: ['./player-not-found.component.scss']
 })
 export class PlayerNotFoundComponent implements OnInit {
 
