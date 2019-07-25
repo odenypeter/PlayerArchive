@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "player-archive"
+    }
+  },
+  "defaultProject": "player-archive",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
