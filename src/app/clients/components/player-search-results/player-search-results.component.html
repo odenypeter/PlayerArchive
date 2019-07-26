@@ -1,1 +1,20 @@
-<p>player-search-results works!</p>
+<mat-card>
+  <mat-card-title>Player Details</mat-card-title>
+  <mat-card-subtitle>ID: {{ player.id }}</mat-card-subtitle>
+  <mat-card-subtitle>Active: {{ player.active }}</mat-card-subtitle>
+  <mat-card-content>
+    <div *ngIf="player.profile; else showLoading">
+      <p>Age: {{ player.profile.age }}</p>
+      <p>Role: {{ player.profile.role }}</p>
+      <p>Team: {{ player.profile.team }}</p>
+    </div>
+
+    <ng-template #showLoading>
+      <div class="d-flex justify-content-center" *ngIf="loading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

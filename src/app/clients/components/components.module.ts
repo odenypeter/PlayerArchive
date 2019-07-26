@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PlayerSearchFormComponent } from './player-search-form/player-search-form.component';
 import { PlayerSearchResultsComponent } from './player-search-results/player-search-results.component';
 import { PlayerNotFoundComponent } from './player-not-found/player-not-found.component';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [PlayerSearchFormComponent, PlayerSearchResultsComponent, PlayerNotFoundComponent],
-  imports: [CommonModule, MatInputModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, MatInputModule, MatCardModule, FormsModule, ReactiveFormsModule],
   exports: [PlayerSearchFormComponent, PlayerSearchResultsComponent, PlayerNotFoundComponent],
 })
 export class ComponentsModule {}

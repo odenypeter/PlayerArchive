@@ -34,6 +34,20 @@ export function reducer(
     case fromActions.PlayerActionTypes.SearchPlayerFail: {
       return { ...state, searching: false, found: false };
     }
+    case fromActions.PlayerActionTypes.GetPlayer: {
+      return { ...state, loading: true, loaded: false };
+    }
+
+    case fromActions.PlayerActionTypes.GetPlayerSuccess: {
+      return playerAdapter.updateOne(
+        { id: action.payload.id, changes: action.payload },
+        { ...state, loaded: true, loading: false }
+      );
+    }
+    case fromActions.PlayerActionTypes.GetPlayerFail: {
+      return { ...state, loaded: false, loading: false };
+    }
+
     default:
       return state;
   }

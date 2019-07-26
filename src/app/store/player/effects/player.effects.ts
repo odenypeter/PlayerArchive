@@ -4,12 +4,11 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 
 import { Observable, of } from 'rxjs';
-import { switchMap, tap, catchError, map } from 'rxjs/operators';
+import { switchMap, tap, catchError, map, debounce, debounceTime } from 'rxjs/operators';
 
 import * as fromActions from '../actions/player.actions';
 import { HttpService } from '@app/shared/services/http.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { SearchPlayerSuccess } from '../../../../../.history/src/app/store/player/actions/player.actions_20190726074909';
 
 @Injectable()
 export class PlayerEffects {
@@ -43,6 +42,9 @@ export class PlayerEffects {
     switchMap((action: fromActions.GetPlayer) =>
       this.httpService.makeRequest('GET', `profile/${action.profileId}`).pipe(
         map(response => {
+          if (response instanceof HttpErrorResponse) {
+            return new fromActions.GetPlayerFail(response);
+          }
           return new fromActions.GetPlayerSuccess(response);
         }),
         catchError(err => of(new fromActions.GetPlayerFail(err)))

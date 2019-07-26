@@ -1,26 +1,27 @@
 <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-md-6 player">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Player Details</mat-card-title>
-                <mat-card-subtitle>Search for a player by ID to view their Details</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <!-- Begin player fearch form -->
-                <div class="player--search">
-                    <app-player-search-form></app-player-search-form>
-                </div>
-                <!-- End player search form -->
+  <div class="col-md-6">
+    <h3 class="page-title mt-2 mb-2">Player Archive</h3>
 
-                <!-- Begin player details section -->
-                <div class="player--details"></div>
-                <!-- End player details section -->
+    <app-player-search-form (playerSearched)="setPlayerId($event)"></app-player-search-form>
 
-                <!-- Begin player not found section -->
-                <div class="player--not-found"></div>
-                <!-- End player not found section -->
-
-            </mat-card-content>
-        </mat-card>
+    <div class="d-flex justify-content-center" *ngIf="searching$ | async; else showResults">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
+
+    <ng-template #showResults>
+      <div *ngIf="activePlayerId">
+        <app-player-search-results
+          *ngIf="player$ | async as player; else playerNotFound"
+          [player]="player"
+          [loading]="loading$ | async"
+        ></app-player-search-results>
+
+        <ng-template #playerNotFound>
+          <app-player-not-found [playerId]="activePlayerId"></app-player-not-found>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
 </div>
