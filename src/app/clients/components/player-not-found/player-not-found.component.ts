@@ -5,10 +5,8 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './player-not-found.component.html',
   styleUrls: ['./player-not-found.component.scss'],
 })
-export class PlayerNotFoundComponent implements OnInit {
+export class PlayerNotFoundComponent {
   @Input() playerId: string;
 
   constructor() {}
-
-  ngOnInit() {}
 }

@@ -26,6 +26,7 @@ export class PlayerSearchFormComponent implements OnInit {
     // initialize search form
     this.initForm();
 
+    // set the searching observable
     this.searching$ = this.store.select(selectPlayerSearching);
   }
 
