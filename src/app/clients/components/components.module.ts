@@ -4,10 +4,11 @@ import { PlayerSearchFormComponent } from './player-search-form/player-search-fo
 import { PlayerSearchResultsComponent } from './player-search-results/player-search-results.component';
 import { PlayerNotFoundComponent } from './player-not-found/player-not-found.component';
 import { MatInputModule } from '@angular/material/input'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PlayerSearchFormComponent, PlayerSearchResultsComponent, PlayerNotFoundComponent],
-  imports: [CommonModule, MatInputModule],
+  imports: [CommonModule, MatInputModule, FormsModule, ReactiveFormsModule],
   exports: [PlayerSearchFormComponent, PlayerSearchResultsComponent, PlayerNotFoundComponent],
 })
 export class ComponentsModule {}
