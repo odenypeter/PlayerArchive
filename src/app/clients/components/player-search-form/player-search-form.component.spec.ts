@@ -8,7 +8,7 @@ import { reducers } from '@app/store/reducers';
 import { PlayerSearchFormComponent } from './player-search-form.component';
 import { SearchPlayer } from '@app/store/player/actions/player.actions';
 
-fdescribe('PlayerSearchFormComponent', () => {
+describe('PlayerSearchFormComponent', () => {
   let component: PlayerSearchFormComponent;
   let fixture: ComponentFixture<PlayerSearchFormComponent>;
 
