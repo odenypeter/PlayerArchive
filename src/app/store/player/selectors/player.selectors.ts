@@ -38,6 +38,10 @@ export const selectPlayerLoaded = createSelector(
   state => state.loaded
 );
 
+/**
+ * select a player by search ID
+ * @param playerId - player id
+ */
 export const selectPlayerById = (playerId: string) =>
   createSelector(
     selectPlayerEntities,

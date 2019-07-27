@@ -29,12 +29,20 @@ export class PlayerDetailsComponent implements OnInit {
     this.loading$ = this.store.select(selectPlayerLoading);
   }
 
+  /**
+   * set the searched player id for selection
+   * @param playerId - the searched player id
+   */
   public setPlayerId(playerId: string) {
     this.activePlayerId = playerId;
-
+    // select player from the store
     this.getPlayer(playerId);
   }
 
+  /**
+   * get the searched player from the store
+   * @param playerId - player id (enetity selectId)
+   */
   private getPlayer(playerId: string) {
     this.player$ = this.store.select(selectPlayerById(playerId));
   }

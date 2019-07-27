@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { PlayerDetailsComponent } from './player-details.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '@app/store/reducers';
+
+import { PlayerDetailsComponent } from './player-details.component';
 
 describe('PlayerDetailsComponent', () => {
   let component: PlayerDetailsComponent;

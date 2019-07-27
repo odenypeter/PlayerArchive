@@ -44,7 +44,7 @@ export class PlayerSearchFormComponent implements OnInit {
     if (this.searchForm.valid) {
       const playerId = (this.searchForm.value.playerId as string).toLowerCase();
       this.store.dispatch(new SearchPlayer(`${playerId}.json`));
-
+      // emit searched player id for selection if found
       this.playerSearched.emit(playerId);
     }
   }
