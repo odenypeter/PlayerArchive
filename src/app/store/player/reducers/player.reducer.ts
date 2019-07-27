@@ -1,10 +1,9 @@
 import * as fromActions from '../actions/player.actions';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
-import { PlayerSearchResults } from '../models/player-search-reesults';
-import { SearchPlayerFail } from '../../../../../.history/src/app/store/player/actions/player.actions_20190725223417';
+import { Player } from '../models/player.model';
 
-export const playerAdapter = createEntityAdapter<PlayerSearchResults>();
-export interface PlayerState extends EntityState<PlayerSearchResults> {
+export const playerAdapter = createEntityAdapter<Player>();
+export interface PlayerState extends EntityState<Player> {
   searching: boolean;
   found: boolean;
 

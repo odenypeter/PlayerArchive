@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription, Observable } from 'rxjs';
+
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+
 import { AppState } from '@app/store/reducers';
 import {
   selectPlayerById,
   selectPlayerSearching,
   selectPlayerLoading,
 } from '@app/store/player/selectors/player.selectors';
+import { Player } from '@app/store/player/models/player.model';
 
 @Component({
   selector: 'app-player-details',
@@ -14,13 +17,11 @@ import {
   styleUrls: ['./player-details.component.scss'],
 })
 export class PlayerDetailsComponent implements OnInit {
-  player$: Observable<any>;
+  player$: Observable<Player>;
   searching$: Observable<boolean>;
   loading$: Observable<boolean>;
 
   activePlayerId: string;
-
-  playerSubscription: Subscription;
 
   constructor(private store: Store<AppState>) {}
 
