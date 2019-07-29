@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseUrl: 'https://web-sandbox.onefootball.com/assignments/player/',
 };
